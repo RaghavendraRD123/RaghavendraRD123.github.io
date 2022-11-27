@@ -1,0 +1,33 @@
+.activeLink {
+    /* text-decoration: none; */
+    color:red;
+}
+
+.normalLink {
+    text-decoration: wavy;
+    color: black;
+    font-size: 20px;
+    font-family: sans-serif
+}
+
+#container {
+    width: 90%;
+}
+
+#header {
+    /* background-color: rgb(169, 252, 224); */
+    background-color: rgb(199, 190, 248);
+    width: 100%;
+    position: fixed;
+    padding: 20px;
+    z-index: 100;
+}
+.sections {
+    padding-top: 80px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
