@@ -13,6 +13,7 @@
   }
 }
 
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -36,3 +37,33 @@
     transform: rotate(360deg);
   }
 }
+
+.smokeStyles{
+  margin: auto;
+  color: black;
+  background-color : whitesmoke;
+  width : 80% ;
+  border-radius: 10px;
+}
+
+.div {
+    border:1px solid #c9d1d9 ;
+    display:inline-block ;
+    padding:20px ;
+    border-radius : 20px;
+    margin-top:20px;
+}
+
+.sections > h1 {
+  /* border: 2px solid yellow; */
+  margin-bottom: 30px;
+  color:blueviolet;
+}
+
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+

@@ -5,9 +5,8 @@
 
 .normalLink {
     text-decoration: wavy;
-    color: black;
-    font-size: 20px;
-    font-family: sans-serif
+    font-size: 25px;
+    font-family: serif
 }
 
 #container {
@@ -15,15 +14,13 @@
 }
 
 #header {
-    /* background-color: rgb(169, 252, 224); */
-    background-color: rgb(199, 190, 248);
+    /* background-color: rgb(199, 190, 248); */
+    /* background-color: #602687; */
+    background-color: rgb(54, 52, 52);
     width: 100%;
     position: fixed;
     padding: 20px;
     z-index: 100;
-}
-.sections {
-    padding-top: 80px;
 }
 
 .main-nav {

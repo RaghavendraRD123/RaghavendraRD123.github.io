@@ -1,116 +1,108 @@
 import logo from './logo.svg';
 import './App.css';
 import './Navbar.css';
-import { Card, CardHeader, CardBody, CardFooter,Image, Stack, Heading ,Text, Button } from '@chakra-ui/react';
+import { Card, CardHeader, CardBody, CardFooter,Image, Box ,
+         Stack, Heading ,Text, Button, SimpleGrid, Menu, MenuButton, MenuList, MenuItem,IconButton } from '@chakra-ui/react';
+import { Projects } from './components/Projects';
+import GitHubCalendar from 'react-github-calendar';
+import { TechStack } from './components/TechStack';
+import { Contact } from './components/Contact';
+import { Resume } from './components/Resume';
+import { useEffect, useRef, useState } from 'react';
+import { Home } from './components/Home';
+import { About } from './components/About';
+import { HamburgerIcon } from '@chakra-ui/icons'
+import { Navbar } from './components/Navbar';
 
-function App() {
+function App() { 
+const resumeRef = useRef(null);
+const [sectionHt,setSectionHt] = useState('');
+const [menu,setMenu] = useState('');
+
+useEffect(()=>{
+  const width = window.outerWidth;
+  setSectionHt((width < 1280) ? '135px' : '80px' )
+  setMenu((width < 600) ? true : false )
+},[])
+
+window.addEventListener('resize',(a)=>{
+  console.log('resized::::::',window.outerWidth);
+  if(window.outerWidth < 1280){
+    setSectionHt('135px');
+  }else{
+    setSectionHt('80px');
+  }
+  if(window.outerWidth < 600){
+    setMenu(true);
+  }else{
+    setMenu(false);
+  }
+})
+
+const sectSyle = {
+  paddingTop:sectionHt,
+}
+
+const sectHead = {
+  as : 'h1',
+  size:'3xl'
+}
+
+const githubSect = {
+  ...sectHead, 
+  marginBottom  :  '20px ',
+  paddingTop : '50px',
+  color  :  'blueviolet',
+  size : '2xl'
+}
+
   return (
-    <div className="App" >
+    <div className="App" style={{margin:'auto'}}>
       <header id='header' >
-        <div className='container' >
-          <nav className='main-nav'> 
-            <a className='normalLink' href='#Home' >Home</a>
-            <a className='normalLink' href='#About' >About Me</a>
-            <a className='normalLink' href='#Skills' >Skills</a>
-            <a className='normalLink' href='#Project' >Project</a>
-            <a className='normalLink' href='#Contact' >Contact</a>
-            <a className='normalLink' href='#Resume' >Resume</a>
-          </nav>
-        </div>
+        <Navbar menu={menu} />
       </header>
         <div>
-          <section className='sections' id='Home'>
-            <h1>Home</h1>
+          <section className='sections' style={sectSyle} id='Home'>
+            <Home menu={menu} />
+          </section>
+          {/* <section  className='sections' style={sectSyle} id='Calender'></section> */}
+          <section  className='sections' style={sectSyle} id='About' >
+            <Heading {...sectHead}>About Me</Heading>
+            <About menu={menu} />
+          </section>
+          <section  className='sections' style={sectSyle} id='Skills'>
+            <Heading {...sectHead} >Skills</Heading>
+            <TechStack menu={menu} />
+            <Box >
+              <Heading {...githubSect}>Github Stats</Heading>
+              <Image width={menu?'80%':'650px'} margin='auto' src='https://github-readme-stats.vercel.app/api?username=RaghavendraRD123&theme=radical' />
+              <Heading {...githubSect}>GitHub Calendar</Heading>
+                <GitHubCalendar style={{
+                  width : "100%",
+                  margin : 'auto',
+                }} username="raghavendrard123" />
+            </Box>
+          </section>
+          <section  className='sections' style={sectSyle} id='Project'>
+            <Heading {...sectHead}>Project</Heading>
             <div>
-              <Card
-                direction={{ base: 'column', sm: 'row' }}
-                overflow='hidden'
-                variant='outline'
-                style={{
-                  color:'white',
-                  width:'90%',
-                  margin:'auto'
-                }}
-              >
-                <Image
-                  objectFit='cover'
-                  maxW={{ base: '100%', sm: '200px' }}
-                  src='https://avatars.githubusercontent.com/u/107551502?v=4'
-                  alt='Profile Pic'
-                />
-
-                <Stack>
-                  <CardBody>
-                    <Heading size='md'>Raghavendra RD</Heading>
-
-                    <Text py='2'>
-                    Proficient in translating designs  into high-quality code. Troubleshooting & debugging to improve overall performance with problem solving skills.
-                    </Text>
-                  </CardBody>
-
-                  <CardFooter>
-                    <Button variant='solid' colorScheme='blue'>
-                      More info
-                    </Button>
-                  </CardFooter>
-                </Stack>
-              </Card>
+              <Projects ProWidth={menu?'80%':"70%"} menu={menu} />
             </div>
           </section>
-          <section  className='sections'id='About'>
-            <h1>About Me</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not
-              simply random text. It has roots in 
-              a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard 
-                McClintock, a Latin professor at Hampden-Sydney 
-                College in Virginia, looked up one of the more ob
-                scure Latin words, consectetur, from a Lorem Ipsum 
-            </p>
+          <section  className='sections' style={sectSyle} id='Contact'>
+            <Heading {...sectHead}>Contact</Heading>
+            <Contact />
           </section>
-          <section  className='sections'id='Skills'>
-            <h1>Skills</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not
-              simply random text. It has roots in 
-              a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard 
-                McClintock, a Latin professor at Hampden-Sydney 
-                College in Virginia, looked up one of the more ob
-                scure Latin words, consectetur, from a Lorem Ipsum 
-            </p>
-          </section>
-          <section  className='sections'id='Project'>
-            <h1>Project</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not
-              simply random text. It has roots in 
-              a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard 
-                McClintock, a Latin professor at Hampden-Sydney 
-                College in Virginia, looked up one of the more ob
-                scure Latin words, consectetur, from a Lorem Ipsum 
-            </p>
-          </section>
-          <section  className='sections'id='Contact'>
-            <h1>Contact</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not
-              simply random text. It has roots in 
-              a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard 
-                McClintock, a Latin professor at Hampden-Sydney 
-                College in Virginia, looked up one of the more ob
-                scure Latin words, consectetur, from a Lorem Ipsum 
-            </p>
-          </section>
-          <section  className='sections'id='Resume'>
-            <h1>Resume</h1>
-            <p>Contrary to popular belief, Lorem Ipsum is not
-              simply random text. It has roots in 
-              a piece of classical Latin literature from
-                45 BC, making it over 2000 years old. Richard 
-                McClintock, a Latin professor at Hampden-Sydney 
-                College in Virginia, looked up one of the more ob
-                scure Latin words, consectetur, from a Lorem Ipsum 
-            </p>
+          <Image zIndex='-2' position='absolute' width='100%'  margin='center' marginTop='40px' src ='https://i.pinimg.com/originals/88/15/63/881563d6444b370fa4ceea0c3183bb4c.gif' />
+          <section  style={{
+              color : 'white' ,
+              paddingTop : sectionHt,
+            }}  
+            className='sections'id='Resume'>
+            <Heading {...sectHead} style={{
+              color : 'white'
+            }}>Resume</Heading>
+            <Resume ref={resumeRef} />
           </section>
        </div>
     </div>
