@@ -7,12 +7,12 @@ export const Home = ({menu}) =>{
 
   useEffect(()=>{
     const width = window.outerWidth;
-    setTextSize( (width <= 900) ? '5xl' : '8xl' );
+    setTextSize( (width <= 768) ? '5xl' : '8xl' );
   },[])
 
   window.addEventListener('resize',()=>{
     const width = window.outerWidth;
-    setTextSize( (width <= 570) ? '5xl' : '8xl'  );
+    setTextSize( (width <= 768) ? '5xl' : '8xl'  );
   })
     return <Box display={'inline-block'} >
     <SimpleGrid marginTop='30px'
@@ -21,6 +21,8 @@ export const Home = ({menu}) =>{
                 objectFit='cover'
                 borderRadius='20%'
                 width={menu ? "300px" : "500px"}
+                _hover={{ w: menu ? "310px" : "510px" }} 
+                transition="all 0.3s linear" 
                 src='https://avatars.githubusercontent.com/u/107551502?v=4'
                 alt='Profile Pic'
                 margin='auto'

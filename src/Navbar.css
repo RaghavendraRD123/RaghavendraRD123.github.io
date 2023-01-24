@@ -9,6 +9,12 @@
     font-family: serif
 }
 
+.normalLink:hover{
+    color : #ff4ffa ;
+    text-decoration: underline; 
+    text-underline-offset: 10px;
+}
+
 #container {
     width: 90%;
 }
@@ -16,11 +22,13 @@
 #header {
     /* background-color: rgb(199, 190, 248); */
     /* background-color: #602687; */
+    display: grid;
     background-color: rgb(54, 52, 52);
     width: 100%;
     position: fixed;
     padding: 20px;
     z-index: 100;
+    grid-template-columns: repeat(1,250px 1fr);
 }
 
 .main-nav {

@@ -18,21 +18,21 @@ function App() {
 const resumeRef = useRef(null);
 const [sectionHt,setSectionHt] = useState('');
 const [menu,setMenu] = useState('');
+const [navbarHt,setNavbarHt] = useState('')
 
 useEffect(()=>{
   const width = window.outerWidth;
-  setSectionHt((width < 1280) ? '135px' : '80px' )
+  setSectionHt((width < 1280) ? '135px' : '100px' )
   setMenu((width < 600) ? true : false )
 },[])
 
 window.addEventListener('resize',(a)=>{
-  console.log('resized::::::',window.outerWidth);
   if(window.outerWidth < 1280){
     setSectionHt('135px');
   }else{
-    setSectionHt('80px');
+    setSectionHt('100px');
   }
-  if(window.outerWidth < 600){
+  if(window.outerWidth < 768){
     setMenu(true);
   }else{
     setMenu(false);
@@ -58,9 +58,19 @@ const githubSect = {
 
   return (
     <div className="App" style={{margin:'auto'}}>
-      <header id='header' >
-        <Navbar menu={menu} />
-      </header>
+      <Box id='header' >
+        <Text
+                          color='#ff4ffa'
+                          fontSize = '35px'
+                          fontFamily='garamond'
+                          fontStyle='italic'
+                          fontWeight='extrabold'
+                          // textAlign="left"
+                        >
+                        Raghavendra
+          </Text>
+          <Navbar menu={menu} />
+        </Box>
         <div>
           <section className='sections' style={sectSyle} id='Home'>
             <Home menu={menu} />

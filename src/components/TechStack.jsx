@@ -1,4 +1,4 @@
-import {Heading, SimpleGrid,Image, Box} from '@chakra-ui/react';
+import {Heading, SimpleGrid,Image, Box, Center} from '@chakra-ui/react';
 
 const imgArr = [
     // {
@@ -49,7 +49,9 @@ export const TechStack = ({menu}) => {
         <SimpleGrid gap='20px' columns={[2,3,4,4,6,6]} >
         {
             imgArr.map((el,i)=>{
-                return <Box key={i} border="1px solid white" borderRadius={"15px"} padding="17px 12px 12px 12px" >
+                return <Box _hover={{
+                    p : '5px 12px'
+                }} transition="all 0.15s linear" key={i} border="1px solid white" borderRadius={"15px"} padding="17px 12px 12px 12px" >
                   <Image
                     margin='auto'
                     overflow='hidden'

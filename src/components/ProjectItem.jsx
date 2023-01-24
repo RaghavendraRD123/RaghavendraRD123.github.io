@@ -31,7 +31,8 @@ export const ProjectItem = ({img,title,desc,Tech,git,deploy,menu}) => {
               <Image src={img} alt='Project Image' style={{
                 width : (menu) ? "250px" : "400px" ,
                 height : (menu) ? "160px" : "250px" ,
-                borderRadius : '30px'
+                borderRadius : '30px',
+                margin :'auto'
               }} />
             </Box>
             <Box width={menu ? "250px" : "450px"} >
