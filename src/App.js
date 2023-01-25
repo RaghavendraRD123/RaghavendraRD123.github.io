@@ -23,7 +23,7 @@ const [navbarHt,setNavbarHt] = useState('')
 useEffect(()=>{
   const width = window.outerWidth;
   setSectionHt((width < 1280) ? '135px' : '100px' )
-  setMenu((width < 600) ? true : false )
+  setMenu((width < 768) ? true : false )
 },[])
 
 window.addEventListener('resize',(a)=>{
@@ -88,7 +88,7 @@ const githubSect = {
               <Image width={menu?'80%':'650px'} margin='auto' src='https://github-readme-stats.vercel.app/api?username=RaghavendraRD123&theme=radical' />
               <Heading {...githubSect}>GitHub Calendar</Heading>
                 <GitHubCalendar style={{
-                  width : "100%",
+                  width : menu ? "96%" : "98%" ,
                   margin : 'auto',
                 }} username="raghavendrard123" />
             </Box>
