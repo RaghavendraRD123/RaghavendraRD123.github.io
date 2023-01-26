@@ -15,7 +15,6 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import { Navbar } from './components/Navbar';
 
 function App() { 
-const resumeRef = useRef(null);
 const [sectionHt,setSectionHt] = useState('');
 const [menu,setMenu] = useState('');
 const [navbarHt,setNavbarHt] = useState('')
@@ -59,16 +58,18 @@ const githubSect = {
   return (
     <div className="App" style={{margin:'auto'}}>
       <Box id='header' >
+        <a href='#Home'>
         <Text
                           color='#ff4ffa'
                           fontSize = '35px'
                           fontFamily='garamond'
                           fontStyle='italic'
                           fontWeight='extrabold'
-                          // textAlign="left"
+                          // textAlign="left" 
                         >
                         Raghavendra
           </Text>
+        </a>
           <Navbar menu={menu} />
         </Box>
         <div>
@@ -112,7 +113,7 @@ const githubSect = {
             <Heading {...sectHead} style={{
               color : 'white'
             }}>Resume</Heading>
-            <Resume ref={resumeRef} />
+            <Resume />
           </section>
        </div>
     </div>
