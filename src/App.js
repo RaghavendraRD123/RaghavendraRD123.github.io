@@ -110,9 +110,9 @@ const githubSect = {
               paddingTop : sectionHt,
             }}  
             className='sections'id='Resume'>
-            <Heading {...sectHead} style={{
+            {/* <Heading {...sectHead} style={{
               color : 'white'
-            }}>Resume</Heading>
+            }}>Resume</Heading> */}
             <Resume />
           </section>
        </div>

@@ -33,7 +33,7 @@ const downloadfn = () =>{
                     boxShadow: 'blue -20px 10px 100px 20px' ,
                     border : '5px solid blue'
                 }}>
-                Download
+                Resume
                 </button>
             </a>
     </div>
